@@ -1,0 +1,27 @@
+package main.specifications;
+
+
+
+
+
+
+calc -> _terminals %% exps //_ids son los terminales
+
+_terminals -> _terminals terminal;
+
+exps -> exps exp
+		| e
+
+exp -> id '->' exp_body exp_body1 ;
+
+
+exp_body -> EPSILON
+			| _terminals_no_terminals
+
+
+_terminals_no_terminals -> _terminals_no_terminals _terminal
+						| _terminals_no_terminals id
+						| e
+
+exp_body1 -> exp_body1 '|' exp_body
+			|e
